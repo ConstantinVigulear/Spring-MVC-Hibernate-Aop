@@ -19,14 +19,14 @@ public abstract class AbstractDaoImpl<T> implements GenericDao<T> {
   @SuppressWarnings("unchecked")
   public T findById(Long id) {
     Query query =
-        entityManager.createQuery("FROM " + getEntityClass().getName() + " e WHERE e.id = :id");
+            entityManager.createQuery("FROM " + getEntityClass().getName() + " e WHERE e.id = :id");
     query.setParameter("id", id);
 
     T entity = (T) query.getSingleResult();
 
     if (entity == null) {
       throw new NotFoundException(
-          "Delete error: entity with id = " + id + "not found and cannot be deleted");
+              "Delete error: entity with id = " + id + "not found and cannot be deleted");
     }
 
     return entity;

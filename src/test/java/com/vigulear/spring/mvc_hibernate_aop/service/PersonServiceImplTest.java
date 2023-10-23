@@ -4,6 +4,7 @@ import com.vigulear.spring.mvc_hibernate_aop.dao.PersonDao;
 import com.vigulear.spring.mvc_hibernate_aop.entity.Person;
 
 import com.vigulear.spring.mvc_hibernate_aop.entity.Skill;
+import com.vigulear.spring.mvc_hibernate_aop.service.impl.PersonServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

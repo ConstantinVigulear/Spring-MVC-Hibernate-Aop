@@ -1,4 +1,4 @@
-package com.vigulear.spring.mvc_hibernate_aop.service;
+package com.vigulear.spring.mvc_hibernate_aop.service.impl;
 
 import com.vigulear.spring.mvc_hibernate_aop.dao.GenericDao;
 import com.vigulear.spring.mvc_hibernate_aop.dao.SkillDao;
@@ -11,7 +11,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-@Transactional
 public class SkillServiceImpl implements SkillService {
 
   private final SkillDao skillDao;
@@ -21,11 +20,13 @@ public class SkillServiceImpl implements SkillService {
   }
 
   @Override
+  @Transactional
   public Skill persist(Skill entity) {
     return skillDao.persist(entity);
   }
 
   @Override
+  @Transactional
   public Skill update(Skill entity) {
     return skillDao.update(entity);
   }
@@ -41,11 +42,13 @@ public class SkillServiceImpl implements SkillService {
   }
 
   @Override
+  @Transactional
   public void delete(Skill entity) {
     skillDao.delete(entity);
   }
 
   @Override
+  @Transactional
   public void deleteById(Long id) {
     skillDao.deleteById(id);
   }

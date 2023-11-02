@@ -36,8 +36,6 @@ class PeopleControllerTest {
   @Mock private PersonServiceImpl personService;
   private MockMvc mockMvc;
 
-  @Mock private Model model;
-
   @BeforeEach
   void setUp() {
     mockMvc = MockMvcBuilders.standaloneSetup(new PeopleController(personService)).build();

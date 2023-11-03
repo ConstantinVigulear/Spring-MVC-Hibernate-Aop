@@ -16,6 +16,7 @@ public class GlobalExceptionHandler {
   public ModelAndView handleNotFoundException(NotFoundException exception) {
     ModelAndView model = new ModelAndView("error/error");
     model.addObject("exception", exception.getMessage());
+    model.setStatus(HttpStatus.NOT_FOUND);
 
     return model;
   }
@@ -25,6 +26,7 @@ public class GlobalExceptionHandler {
   public ModelAndView handleAlreadyPresentException(AlreadyPresentException exception) {
     ModelAndView model = new ModelAndView("error/error");
     model.addObject("exception", exception.getMessage());
+    model.setStatus(HttpStatus.BAD_REQUEST);
 
     return model;
   }
@@ -34,6 +36,7 @@ public class GlobalExceptionHandler {
   public ModelAndView handleException(Exception exception) {
     ModelAndView model = new ModelAndView("error/error");
     model.addObject("exception", exception.getMessage());
+    model.setStatus(HttpStatus.BAD_REQUEST);
 
     return model;
   }

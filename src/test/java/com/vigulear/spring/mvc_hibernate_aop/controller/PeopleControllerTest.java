@@ -7,6 +7,7 @@ import com.vigulear.spring.mvc_hibernate_aop.service.impl.PersonServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
@@ -29,12 +30,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(MockitoExtension.class)
 class PeopleControllerTest {
 
-  @Mock private PersonServiceImpl personService;
-  private MockMvc mockMvc;
+  @Mock PersonServiceImpl personService;
+  @InjectMocks PeopleController peopleController;
+  MockMvc mockMvc;
 
   @BeforeEach
   void setUp() {
-    mockMvc = MockMvcBuilders.standaloneSetup(new PeopleController(personService)).build();
+    mockMvc = MockMvcBuilders.standaloneSetup(peopleController).build();
   }
 
   @Test
